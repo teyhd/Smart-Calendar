@@ -2,7 +2,7 @@ var app = require('express')();
 var request = require('request');
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
-let port = 80;
+let port = 808;
 
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
@@ -46,24 +46,33 @@ app.get('/shad*', function (req,res) {
     io.emit('shad',req.query.shad);
 }); //Устанавливаем тень, полученную с get запроса
 
+app.get('/cmd*', function (req,res) {
+    console.log(req.query);
+    res.send("OK");
+    io.emit('cmd',req.query.cmd);
+}); //Устанавливаем тень, полученную с get запроса
+
 io.on('connection', function(socket){
     console.log('['+socket.id+'] user connected');
     socket.on('weat',function () {
-        request.post({url:'http://ser.teyhd.ru/vkbot/smind/weather.php', form: {q:'88'}}, function(err,httpResponse,body){
-            // console.log(httpResponse);
-            console.log(body);
-            var obj = JSON.parse(body);
-            setTimeout(function () {
-                socket.emit('weather',obj);
-            }),3000
-        })
-    })
+        send_weather(socket);
+    });
 });
 
 http.listen(port, function(){
     console.log('listening on *: '+port);
 });
 
-
+function send_weather(socket) {
+        request.post({url:'http://localhost/weather.php', form: {q:'88'}}, function(err,httpResponse,body){
+            console.log(body);
+            if(body!=undefined){
+            var obj = JSON.parse(body);
+            setTimeout(function () {
+                socket.emit('weather',obj);
+            }),3000
+            }
+        })
+}
 
 

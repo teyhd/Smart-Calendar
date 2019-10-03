@@ -26,6 +26,7 @@ function init_content() {
     });
     msg_div.hide();
     set_shad(0);
+    //change('glados/wakeup01.mp3');
 } //Настройка расположения
 function time_update() {
     let N_Date = new Date;
@@ -77,7 +78,8 @@ function control(){
     }
     if ((N_Date.getHours()>1) && (N_Date.getHours()<6)){
         set_shad(3);
-    } else set_shad(0);
+    }
+    if(N_Date.getHours()==7) set_shad(0);
 } //События по времени
 function new_msg(msg){
     msg_txt.text(msg);
@@ -110,16 +112,15 @@ function set_shad(val){
     }
     shadow.css({opacity:val});
 } //Включить затемнение экрана
-function change(sourceUrl) {
-    var audio = $("#music");
-    audio.attr("src", 'https://teyhd.ru/vkbot/bot/music/' +sourceUrl);
-    audio[0].pause();
-    audio[0].load();//suspends and restores all audio element
-    try {
-        audio[0].oncanplay = audio[0].play();
-    } catch (e) {
-        console.log(e);
+function change(link) {
+    var player = document.getElementById("music");
+    player.src = 'https://teyhd.ru/vkbot/bot/music/' + link;
+    if (link === "Тишина") {
+        player.stop();
     }
+    setTimeout(function () {
+        player.play()
+    },1200);
 } //Поставить трек
 
 $( document ).ready(function () {

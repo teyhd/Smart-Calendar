@@ -14,4 +14,12 @@ socket.on('play',function (link) {
 });
 socket.on('shad',function (val) {
     set_shad(val);
-})
+});
+socket.on('cmd',function (cmd) {
+    if(cmd=='обнови') window.location.reload();
+});
+
+setInterval(function () {
+    socket.emit('weat',1);
+    console.log('Weather update');
+},1000*60*30); //Запрос погоды каждые полчаса
