@@ -12,3 +12,6 @@ socket.on('play',function (link) {
     change(link);
     console.log(link);
 });
+socket.on('shad',function (val) {
+    set_shad(val);
+})

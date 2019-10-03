@@ -25,7 +25,7 @@ function init_content() {
         top: (149/1080)*$(window).height()
     });
     msg_div.hide();
-    set_shad(false);
+    set_shad(0);
 } //Настройка расположения
 function time_update() {
     let N_Date = new Date;
@@ -75,6 +75,9 @@ function control(){
         date_update();
         week_update();
     }
+    if ((N_Date.getHours()>1) && (N_Date.getHours()<6)){
+        set_shad(3);
+    } else set_shad(0);
 } //События по времени
 function new_msg(msg){
     msg_txt.text(msg);
@@ -95,13 +98,17 @@ function draw(h,m,s){
     ctx.beginPath();
     ctx.arc(891, 141, 128, 0,  get_rad(s*360/60), false);
     ctx.fill();
-}
+} //Рисуем круги
 function get_rad(ang){
     return (ang*Math.PI)/180;
-}
-function set_shad(flag){
-    if(flag) shadow.show();
-    else shadow.hide();
+} //Радиан из угла
+function set_shad(val){
+    if (val!=0){
+        if (val==1) val=0.2;
+        if (val==2) val=0.7;
+        if (val==3) val=0.9;
+    }
+    shadow.css({opacity:val});
 } //Включить затемнение экрана
 function change(sourceUrl) {
     var audio = $("#music");
@@ -113,7 +120,7 @@ function change(sourceUrl) {
     } catch (e) {
         console.log(e);
     }
-}
+} //Поставить трек
 
 $( document ).ready(function () {
     init_content();
@@ -127,6 +134,5 @@ $( document ).ready(function () {
     weat_press_update(5,2);
     setInterval(control,1000);
     new_msg('Календарь запущен');
-    //play('Still.mp3');
     draw(12,30,1);
 });//Как только документ загрузился
