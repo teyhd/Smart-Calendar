@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Каленадрь</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="codes/jquery-3.4.1.js"></script>
+
+</head>
+<body>
+<div class="shad"></div>
+<div class="page">
+    <canvas id="canv" class="canvas" width="1050px" height="285"></canvas>
+    <div class="time">00:00:00</div>
+    <div class="date">31 Октября</div>
+    <div class="week">Понедельник</div>
+    <div class="weather">14&deg</div>
+    <div class="press">766</div>
+    <div class="msg_div">
+        <img id="msg_pic" src="img/msg.png">
+        <div class="msg_sp">[15:36]Ваш напиток готов</div>
+    </div>
+    <img id="pic" src="img/0.png">
+</div>
+<audio id="music" src="https://teyhd.ru/vkbot/bot/music/glados/wakeup02.mp3" autoplay> </audio>
+<script src="codes/main.js"></script>
+<script src="node_modules/socket.io-client/dist/socket.io.js"></script>
+<script src="codes/socket.js"></script>
+</body>
+</html>
