@@ -1,5 +1,3 @@
-# Smart-Calendar
-Calendar for Smart House on Node.js
 # Умный календарь [Новый]
 Реализация календаря для умного дома на NodeJS
 # Установка
