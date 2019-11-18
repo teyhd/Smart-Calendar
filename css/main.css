@@ -63,7 +63,8 @@ body{
     -webkit-transform: matrix( 0.49268618679347,0,0,0.4976628149429,0,0);
     -ms-transform: matrix( 0.49268618679347,0,0,0.4976628149429,0,0);
     position: absolute;
-    left: 1450.205px;
+    width: 500px;
+    left: 1425px;
     top: 363px;
     z-index: 19;
 }
