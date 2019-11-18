@@ -74,5 +74,3 @@ function send_weather(socket) {
             }
         })
 }
-
-
