@@ -124,7 +124,7 @@ function change(link) {
 } //Поставить трек
 function alarm(link) {
     var player = document.getElementById("music");
-    player.src = 'http://localhost/SmartCalendar/alarms/' + link;
+    player.src = 'http://localhost/alarms/' + link;
     if (link === "Тишина") {
         player.stop();
     }

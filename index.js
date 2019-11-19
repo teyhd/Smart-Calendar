@@ -9,7 +9,7 @@ var mysql      = require('mysql');
 let port = 808;
 const dir = './alarms';
 var dt = dateTime.create();
-var alarm_time = "18:02:30";
+var alarm_time = "18:45:30";
 var connection = mysql.createConnection({
     host     : '95.104.192.212',
     user     : 'vlad',
@@ -106,7 +106,7 @@ function alarm_update(){
 var sing;
 setInterval(function() {
     dt = dateTime.create();
-    if (dt.format('H:M:S')==alarm_time){
+    if (dt.format('H:M:S')=="18:45:30"){
         fs.readdir(dir, (err, files) => {
              sing = Math.floor(Math.random() * Math.floor(files.length));
              io.emit('msg','Доброе утро!!!');
