@@ -122,6 +122,16 @@ function change(link) {
         player.play()
     },1200);
 } //Поставить трек
+function alarm(link) {
+    var player = document.getElementById("music");
+    player.src = 'http://localhost/alarms/' + link;
+    if (link === "Тишина") {
+        player.stop();
+    }
+    setTimeout(function () {
+        player.play()
+    },1200);
+} //Поставить трек
 
 $( document ).ready(function () {
     init_content();

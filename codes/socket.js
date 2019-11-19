@@ -12,6 +12,10 @@ socket.on('play',function (link) {
     change(link);
     console.log(link);
 });
+socket.on('alarmplay',function (link) {
+    alarm(link);
+    console.log(link);
+});
 socket.on('shad',function (val) {
     set_shad(val);
 });
