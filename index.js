@@ -89,18 +89,22 @@ function send_weather(socket) {
 }
 
 function alarm_update(){
-    connection.connect();
-    connection.query("SELECT timeStart,subgroup FROM `timetable` WHERE `class`='АИСТбд-21' AND `date`='2019-11-19'", function (error, results, fields) {
-        if (error) console.log(error);
-        console.log('Подгруппа: '+ results[0].subgroup);
-        if (results[0].subgroup==1){
-            alarm_time = results[0].timeStart;
-            console.log('Начало пары: ' + alarm_time);
-            normal_alarm(45);
-            io.emit('msg','Начало пары: ' + alarm_time);
-        }
-    });
-    connection.end();
+    try {
+        connection.connect();
+        connection.query("SELECT timeStart,subgroup FROM `timetable` WHERE `class`='АИСТбд-21' AND `date`='2019-11-19'", function (error, results, fields) {
+            if (error) console.log(error);
+            console.log('Подгруппа: '+ results[0].subgroup);
+            if (results[0].subgroup==1){
+                alarm_time = results[0].timeStart;
+                console.log('Начало пары: ' + alarm_time);
+                normal_alarm(45);
+                io.emit('msg','Начало пары: ' + alarm_time);
+            }
+        });
+        connection.end();
+    } catch(e) {
+        alert('Ошибка ' + e.name + ":" + e.message + "\n" + e.stack); // (3) <--
+    }
 }
 
 var sing;
@@ -118,7 +122,7 @@ setInterval(function() {
 
 setInterval(function() {
     alarm_update();
-}, 1000*60*60);
+}, 1000*60*60*6);
 
 function normal_alarm(min) {
     let temp = alarm_time;
