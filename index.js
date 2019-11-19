@@ -106,7 +106,7 @@ function alarm_update(){
 var sing;
 setInterval(function() {
     dt = dateTime.create();
-    if (dt.format('H:M:S')=="18:45:30"){
+    if (dt.format('H:M:S')=="18:50:30"){
         fs.readdir(dir, (err, files) => {
              sing = Math.floor(Math.random() * Math.floor(files.length));
              io.emit('msg','Доброе утро!!!');
