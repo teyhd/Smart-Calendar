@@ -76,7 +76,7 @@ function control(){
         date_update();
         week_update();
     }
-    if ((N_Date.getHours()>1) && (N_Date.getHours()<6)){
+    if ((N_Date.getHours()>0) && (N_Date.getHours()<6)){
         set_shad(3);
     }
     if(N_Date.getHours()==7) set_shad(0);
