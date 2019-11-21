@@ -133,7 +133,7 @@ function start_alarm() {
         singrand = Math.floor(Math.random() * Math.floor(files.length));
         io.emit('msg','Доброе утро!!!');
         io.emit('alarmplay',files[singrand]);
-        console.log('БУДИЛЬНИК');
+        console.log('БУДИЛЬНИК трек №'+singrand+' Количество файлов: '+files.length+' Запущен файл: '+files[singrand]);
     });
 } // Будильник
 var singrand; //Выбор рандомного трека
