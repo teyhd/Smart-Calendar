@@ -54,7 +54,14 @@ app.get('/shad*', function (req,res) {
 app.get('/cmd*', function (req,res) {
     console.log(req.query);
     res.send("OK");
-    io.emit('cmd',req.query.cmd);
+    switch (req.query.cmd) {
+        case "testalrm":
+            start_alarm();
+            break;
+        default:
+            io.emit('cmd',req.query.cmd);
+            break;
+    }
 }); //Устанавливаем тень, полученную с get запроса
 io.on('connection', function(socket){
     console.log('['+socket.id+'] user connected');
@@ -109,6 +116,7 @@ function normal_alarm(min) {
     console.log('Вставать в '+alarm_time);
 } //Отнять минуты от времени
 function alarm_time_u(){
+    //request.post({url:'https://teyhd.ru/cloud/data/User/admin/home/test.php', form: {q:'88'}}, function(err,httpResponse,body){
     request.post({url:'http://localhost/test.php', form: {q:'88'}}, function(err,httpResponse,body){
         if(body!=undefined){
             var obj = JSON.parse(body);
@@ -120,18 +128,20 @@ function alarm_time_u(){
     })
 } // Обновление начала пары из php на ТЕКУЩИЙ день
 alarm_time_u();
+function start_alarm() {
+    fs.readdir(dir, (err, files) => {
+        singrand = Math.floor(Math.random() * Math.floor(files.length));
+        io.emit('msg','Доброе утро!!!');
+        io.emit('alarmplay',files[singrand]);
+        console.log('БУДИЛЬНИК');
+    });
+} // Будильник
 var singrand; //Выбор рандомного трека
-
 setInterval(function() {
     dt = dateTime.create();
     if ((dt.format('H')>="00")&&(dt.format('H')<="12"))
          if (dt.format('M:S')== "00:00") alarm_time_u(); //Обновлять каждый час, но ночю
     if ((dt.format('H:M:S')== alarm_time)||(dt.format('M:S')== "20:20")){
-        fs.readdir(dir, (err, files) => {
-            singrand = Math.floor(Math.random() * Math.floor(files.length));
-            io.emit('msg','Доброе утро!!!');
-            io.emit('alarmplay',files[sing]);
-            console.log('БУДИЛЬНИК');
-        });
+        start_alarm();
     }
-}, 1000); //Таймер обытий
+}, 1000); //Таймер событий
