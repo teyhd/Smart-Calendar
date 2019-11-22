@@ -121,8 +121,8 @@ function normal_alarm(min) {
     console.log('Вставать в '+alarm_time);
 } //Отнять минуты от времени
 function alarm_time_u(){
-    request.post({url:'https://teyhd.ru/cloud/data/User/admin/home/test.php', form: {q:'88'}}, function(err,httpResponse,body){
-    //request.post({url:'http://localhost/test.php', form: {q:'88'}}, function(err,httpResponse,body){
+    //request.post({url:'https://teyhd.ru/cloud/data/User/admin/home/test.php', form: {q:'88'}}, function(err,httpResponse,body){
+    request.post({url:'http://192.168.0.103/test.php', form: {q:'88'}}, function(err,httpResponse,body){
         if(body!=undefined){
             var obj = JSON.parse(body);
             //timetable

@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55a7fa62-bdcf-4e7a-908d-1f312b4d62d6" name="Default Changelist" comment="">
+    <list default="true" id="55a7fa62-bdcf-4e7a-908d-1f312b4d62d6" name="Default Changelist" comment="Вывод расписания на страницу">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/codes/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/codes/socket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/0.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,7 +26,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="UPDATE_CHANGES_POLICY" value="SHELVE" />
-    <option name="UPDATE_TYPE" value="REBASE" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1ReiHfTOMwojvKa7TS7QW4w4JGI" />
   <component name="PropertiesComponent">
@@ -43,11 +38,11 @@
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Projects\SmartCalendar\img" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Projects\SmartCalendar\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\SmartCalendar\img" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -81,8 +76,16 @@
       <workItem from="1574226552943" duration="3352000" />
       <workItem from="1574287023464" duration="49000" />
       <workItem from="1574358190464" duration="2747000" />
-      <workItem from="1574410757926" duration="4300000" />
+      <workItem from="1574410757926" duration="5437000" />
     </task>
+    <task id="LOCAL-00001" summary="Вывод расписания на страницу">
+      <created>1574458943026</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574458943026</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,5 +103,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <MESSAGE value="Ввывод расписания на страницу" />
+    <MESSAGE value="Вывод расписания на страницу" />
+    <option name="LAST_COMMIT_MESSAGE" value="Вывод расписания на страницу" />
   </component>
 </project>
