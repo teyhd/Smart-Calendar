@@ -68,6 +68,7 @@ io.on('connection', function(socket){
     socket.on('weat',function () {
         send_weather(socket);
     });
+    alarm_time_u();
 }); //Открывающему соединение, отправляем погоду
 http.listen(port, function(){
     console.log('Запущен сервер на порту: '+port);
@@ -76,7 +77,11 @@ function send_weather(socket) {
         request.post({url:'http://localhost/weather.php', form: {q:'88'}}, function(err,httpResponse,body){
             console.log(body);
             if(body!=undefined){
-            var obj = JSON.parse(body);
+                var obj = {
+                    temp : 0,
+                    press: 5
+                };
+             obj = JSON.parse(body);
             setTimeout(function () {
                 socket.emit('weather',obj);
             }),3000
@@ -116,10 +121,12 @@ function normal_alarm(min) {
     console.log('Вставать в '+alarm_time);
 } //Отнять минуты от времени
 function alarm_time_u(){
-    //request.post({url:'https://teyhd.ru/cloud/data/User/admin/home/test.php', form: {q:'88'}}, function(err,httpResponse,body){
-    request.post({url:'http://localhost/test.php', form: {q:'88'}}, function(err,httpResponse,body){
+    request.post({url:'https://teyhd.ru/cloud/data/User/admin/home/test.php', form: {q:'88'}}, function(err,httpResponse,body){
+    //request.post({url:'http://localhost/test.php', form: {q:'88'}}, function(err,httpResponse,body){
         if(body!=undefined){
             var obj = JSON.parse(body);
+            //timetable
+            io.emit('timetable',obj); //Отправили расписание
             alarm_time = obj[0].start;
             console.log('Начало пары: ' + alarm_time);
             normal_alarm(45);
@@ -127,7 +134,6 @@ function alarm_time_u(){
         }
     })
 } // Обновление начала пары из php на ТЕКУЩИЙ день
-alarm_time_u();
 function start_alarm() {
     fs.readdir(dir, (err, files) => {
         singrand = Math.floor(Math.random() * Math.floor(files.length));
@@ -141,7 +147,10 @@ setInterval(function() {
     dt = dateTime.create();
     if ((dt.format('H')>="00")&&(dt.format('H')<="12"))
          if (dt.format('M:S')== "00:00") alarm_time_u(); //Обновлять каждый час, но ночю
-    if ((dt.format('H:M:S')== alarm_time)||(dt.format('M:S')== "20:20")){
+    if (dt.format('H:M:S')== alarm_time){
+        console.log('Текущее время: '+dt.format('H:M:S'));
         start_alarm();
     }
 }, 1000); //Таймер событий
+console.log('Текущее время: '+dt.format('H:M:S'));
+alarm_time_u();

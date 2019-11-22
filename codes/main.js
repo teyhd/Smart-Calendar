@@ -7,11 +7,17 @@ let press = $('.press');
 let msg_div = $('.msg_div'); // Сообщение
 let msg_txt = $('.msg_sp'); //Текст сообщения
 let shadow = $('.shad');
+let timtable = $('.timetable'); //Расписание
 
 var canvas = document.getElementById('canv');
 var ctx = canvas.getContext('2d');
 
 function init_content() {
+    timtable.css({
+    position: "absolute",
+    left: "1227px",
+    top: "168px"
+    });
     main_div.css({
         backgroundColor: "black",
         position: "absolute",
@@ -28,6 +34,9 @@ function init_content() {
     set_shad(0);
     //change('glados/wakeup01.mp3');
 } //Настройка расположения
+function timetable_update(str) {
+    timtable.html(str);
+} //Вывести полученное расписание
 function time_update() {
     let N_Date = new Date;
     let hour=(N_Date.getHours()<10)?'0'+N_Date.getHours():N_Date.getHours();
@@ -76,7 +85,8 @@ function control(){
         date_update();
         week_update();
     }
-    if ((N_Date.getHours()>0) && (N_Date.getHours()<6)){
+    if (N_Date.getHours()==23) set_shad(3);
+    if ((N_Date.getHours()>=0) && (N_Date.getHours()<=6)){
         set_shad(3);
     }
     if(N_Date.getHours()==7) set_shad(0);
