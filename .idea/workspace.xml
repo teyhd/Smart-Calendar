@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55a7fa62-bdcf-4e7a-908d-1f312b4d62d6" name="Default Changelist" comment="Вывод расписания на страницу">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+    <list default="true" id="55a7fa62-bdcf-4e7a-908d-1f312b4d62d6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/codes/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/codes/main.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +75,7 @@
       <workItem from="1574226552943" duration="3352000" />
       <workItem from="1574287023464" duration="49000" />
       <workItem from="1574358190464" duration="2747000" />
-      <workItem from="1574410757926" duration="5437000" />
+      <workItem from="1574410757926" duration="5875000" />
     </task>
     <task id="LOCAL-00001" summary="Вывод расписания на страницу">
       <created>1574458943026</created>
@@ -85,7 +84,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574458943026</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Исправлен файл вывода расписания">
+      <created>1574460043292</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1574460043292</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -108,6 +114,7 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="Ввывод расписания на страницу" />
     <MESSAGE value="Вывод расписания на страницу" />
-    <option name="LAST_COMMIT_MESSAGE" value="Вывод расписания на страницу" />
+    <MESSAGE value="Исправлен файл вывода расписания" />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправлен файл вывода расписания" />
   </component>
 </project>

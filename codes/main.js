@@ -15,7 +15,7 @@ var ctx = canvas.getContext('2d');
 function init_content() {
     timtable.css({
     position: "absolute",
-    left: "1227px",
+    left: "1226px",
     top: "168px"
     });
     main_div.css({
